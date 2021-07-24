@@ -33,8 +33,8 @@ def update(request, id):
     update_bgyoon.save()
     return redirect('detail', update_bgyoon.id)
 
-def delete(request, bgyoon_id):
-    delete_bgyoon = Bgyoon.objects.get(id=bgyoon_id)
+def delete(request, id):
+    delete_bgyoon = Bgyoon.objects.get(id=id)
     delete_bgyoon.delete()
     return redirect('home')
 

@@ -205,8 +205,8 @@ nav ul li {
                     <h5>{{details.pub_date}}</h5>
                     <div class="fakeimg" style="height:200px;">Image</div>
                     <p>{{details.body}}</p>
-                    <a href="{% url 'edit' bgyoon.id %}">수정</a>
-                    <a href="{% url 'delete' bgyoon.id %}">삭제</a>
+                    <a href="{% url 'edit' details.id %}">수정</a>
+                    <a href="{% url 'delete' details.id %}">삭제</a>
                 </div>
             </div>
         </div>

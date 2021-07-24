@@ -190,11 +190,10 @@ nav ul li {
         <form action="{% url 'update' bgyoon.id %}" method="POST">
             {%csrf_token%}
             <h4>제목</h4>
-            <input type="text" name="title"> <br>
+            <input type="text" name="title" value="{{bgyoon.title}}"> <br>
             <h4>본문</h4>
-            <textarea name="body" cols="30" rows="10" placeholder="윤서에게 하고 싶은 말 적기 ~"></textarea> <br>
+            <textarea name="body" cols="30" rows="10">{{bgyoon.body}}</textarea> <br>
             <button>저장</button>
-
         </form>
         
     </div>
