@@ -18,6 +18,7 @@ def create(request):
     bgyoon.title = request.POST['title']
     bgyoon.pub_date = timezone.datetime.now()
     bgyoon.body = request.POST['body']
+    bgyoon.image = request.FILES['image']
     bgyoon.save()
     return redirect('detail', bgyoon.id)
 
