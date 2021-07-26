@@ -9,4 +9,8 @@ urlpatterns = [
     path('edit/<str:id>', edit, name="edit"),
     path('update/<str:id>', update, name="update"),
     path('delete/<str:id>', delete, name="delete"),
+    path('hobby/', hobby, name="hobby"),
+    path('place/', place, name="place"),
+    path('music/', music, name="music"),
+    path('picture/', picture, name="picture"),
 ]

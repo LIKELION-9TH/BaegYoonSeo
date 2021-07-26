@@ -39,3 +39,15 @@ def delete(request, id):
     delete_bgyoon.delete()
     return redirect('home')
 
+def hobby(request):
+    return render(request, 'hobby.html')
+
+def place(request):
+    return render(request, 'place.html')
+
+def music(request):
+    return render(request, 'music.html')
+
+def picture(request):
+    return render(request, 'picture.html')
+
