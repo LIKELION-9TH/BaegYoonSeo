@@ -1,17 +1,36 @@
 {% extends 'base.html' %}
 
-{% block content%}
 
+{% block content%}
 <div class="contents">
-{% for bgyoon in bgyoons.all %}
-    <div class="leftcolumn">
-        <div class="card">
-            <h2>{{bgyoon.title}}</h2>
-            <h5>{{bgyoon.pub_date}}</h5>
-            <div class="fakeimg">
-                <img src="{{bgyoon.image.url}}" alt="">
+
+    {% load static %}
+    <div class="profile">
+        <div><img src="{% static 'sswu.png' %}" alt=""></div>
+        <div class="profile-text">
+            <h4>백윤서</h4>
+            <h5>성신여자대학교 수학과</h5>
+            <h5>멋쟁이 사자처럼 9기</h5>
+            <h6>안녕하세요. 프론트엔드 개발자를 목표로 하는 백윤서 입니다 ( ◠‿◠ )</h6>
+            <h6>코딩 재밌어요 멋사 사랑해요</h6>
+            <h6>밑에 방명록 쓰고 가실 분 ?</h6>
+            <p><a class="nav-link" href="{% url 'new' %}">방명록 작성</a></p>
+        </div>
+    </div>
+
+    {% for bgyoon in bgyoons.all %}
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="{{bgyoon.image.url}}" class="img-fluid rounded-start" alt="...">
             </div>
-            <p>{{bgyoon.summary}} <a href="{% url 'detail' bgyoon.id %}">...더보기</a></p>
+            <div class="col-md-8">
+                <div class="card-body">
+                <h5 class="card-title">{{bgyoon.title}}</h5>
+                <p class="card-text">{{bgyoon.summary}} <a class="more" href="{% url 'detail' bgyoon.id %}">더보기</a></p>
+                <p class="card-text"><small class="text-muted">{{bgyoon.pub_date}}</small></p>
+                </div>
+            </div>
         </div>
     </div>
 {% endfor %}

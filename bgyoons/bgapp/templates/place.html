@@ -1,7 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content%}
+<div class="card" id="card">
+    <div class="card-body" id="card-body">
+        <h5 class="card-title">반포한강공원</h5>
+        <p class="card-text">반포 한강공원 좋아해요! 요즘엔 많이 못 갔지만 동네라 가기도 편해서
+            동네 친구들이랑 종종 가곤 해요! 따릉이 타고 십다.
+        </p>
+        {% load static %}
+        <img src="{% static 'smile.png' %}" class="card-img-bottom" alt="...">
+        <img src="{% static 'hanriver.png' %}" class="card-img-bottom" alt="...">
+        <p class="card-text"><small class="text-muted">예쁘지</small></p>
 
-장소
-
+    </div>
+</div>
 {% endblock %}

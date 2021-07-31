@@ -1,7 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content%}
+<div class="card" id="card">
+    <div class="card-body" id="card-body">
+        <h5 class="card-title">뜬금없지만 죠르디 좋아합니다</h5>
+        <p class="card-text">그래서 생일에 친구들한테 죠르디만 와장창 받았어요. 행복합니다.
+            좋아하는 죠르디 사진들 올리고 갈게요
+        </p>
+        {% load static %}
+        <img src="{% static 'jordy.png' %}" class="card-img-bottom" alt="...">
+        <img src="{% static 'pajama.png' %}" class="card-img-bottom" alt="...">
+        <p class="card-text"><small class="text-muted">tmi 가격 대비 질 안 좋은 깡패 카카오 프렌즈</small></p>
 
-사진
-
+    </div>
+</div>
 {% endblock %}

@@ -1,19 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content%}
-    <div class="contents">
+<div class="card" id="card">
+    <div class="card-body" id="card-body">
+        <h5 class="card-title">{{details.title}}</h5>
+        <p class="card-text">{{details.body}}</p>
+        <img src="{{details.image.url}}" class="card-img-bottom" alt="...">
+        <p class="card-text"><small class="text-muted">{{details.pub_date}}</small></p>
         
-            <div class="leftcolumn">
-                <div class="card">
-                    <h2>{{details.title}}</h2>
-                    <h5>{{details.pub_date}}</h5>
-                    <div class="fakeimg">
-                        <img src="{{details.image.url}}" alt="">
-                    </div>
-                    <p>{{details.body}}</p>
-                    <a href="{% url 'edit' details.id %}">수정</a>
-                    <a href="{% url 'delete' details.id %}">삭제</a>
-                </div>
-            </div>
+        <div class="detail-btn">
+            <a class="edit" href="{% url 'edit' details.id %}">수정</a>
+            <a class="delete" href="{% url 'delete' details.id %}">삭제</a>
         </div>
+
+    </div>
+</div>
 {% endblock %}

@@ -1,92 +1,89 @@
 <!doctype html>
-<html>
+<html lang="ko">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <title>Baeg Yoon Seo</title>
     <style>
+        @font-face {
+            font-family: 'Pretendard-Regular';
+            src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
         * {
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: sans-serif;
-            padding: 10px;
-            background: #f1f1f1;
-        }
-
-        /* Header/Blog Title */
-        .header {
-            padding: 30px;
-            text-align: center;
-            background: white;
-        }
-
-        .header h1 {
-            font-size: 50px;
-        }
-
-        /* navigation and dropdown */
-        nav ul {
+            font-family: 'Pretendard-Regular';
             width: 100%;
-            background-color: rgba(44, 42, 39, 0.983);
-            list-style-type: none;
-            /* 마진 패딩 지정하지 않으면 브라우저 기본 스타일을 따라 설정되므로 오버라이딩 필요 */
-            margin: 0;
-            padding: 0;
         }
-        /* li 는 블록요소인데 inline-block 으로 인라인속성 부여해서 나란히 배치*/
-        nav ul li {
-            display: inline-block;
-        }
-
-        .home {
-            background-color: darkorange;
-            width: 100px;
-            text-align: center;
+        #home {
+            margin-left: 10%;
             font-weight: bold;
-            float: right;
         }
-
-        .home a {
-            display: block;
-            text-decoration: none;
-            color: white;
-            padding: 16px 16px;
+        .nav-item{
+            margin: 0 10px;
         }
-
-        .dropdown {
+        .header{
             position: relative;
         }
-
-        .dropdown-menu {
+        .logo{
             color: white;
-            padding: 16px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .dropdown-content {
-            display: none;
             position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            text-align: center;
+            top: 50%;
+            left: 50%;
+            transform: translate( -50%, -50% );
         }
-
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
+        
+        /* home CSS */
+        .contents {
+            margin-bottom: 100px;
+        }
+        .more, .nav-link, #home, .edit, .delete, .more:hover, .nav-link:hover, #home:hover {
             text-decoration: none;
-            display: block;
+            color: rgb(98, 175, 149);
+        }
+        .mb-3 {
+            max-width: 540px;
+            margin: auto;
+        }
+        .profile {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .profile img {
+            width: 500px;
+        }
+        .profile-text {
+            margin: 15px 0;
         }
 
-        /* dropdown-menu 에는 hover 적용이 안됨 */
-        .dropdown:hover .dropdown-content {
-            display: block;
+        /* 나머지 CSS */
+        #card {
+            text-align: center;
+            margin-bottom: 100px;
         }
-
-        .dropdown-content a:hover {background-color: #f1f1f1}
-
-        .dropdown-menu:hover:not(.home){
-            background-color: darkorange;
+        #card-body {
+            padding: 50px 400px;
+        }
+        #card img {
+            width: 700px;
+        }
+        .detail-btn {
+            margin-top: 50px;
+        }
+        .edit, .delete {
+            border-radius: 5px;
+            border: 1px solid rgb(98, 175, 149);
+            padding: 10px;
+            margin: 0 10px;
+        }
+        .edit:hover, .delete:hover {
+            background-color: rgb(98, 175, 149);
             color: white;
         }
     </style>
@@ -96,31 +93,35 @@
     {% load static %}
     <header>
         <div class="header">
-            <h1>My Blog</h1>
-            <img src="{% static 'jordy.jpeg' %}" alt="">
+            <div><img src="{% static 'background.png' %}" alt=""></div>
+            <div><h1 class="logo">Baeg Yoon Seo</h1></div>
         </div>
     </header>
 
-    <nav>
-        <ul>
-            <li class="dropdown">
-                <div class="dropdown-menu"><a href="{% url 'new' %}">방명록</a></div>
-            </li>
-            <li class="dropdown">
-                <div class="dropdown-menu"><a href="{% url 'hobby' %}">취미</a></div>
-            </li>
-            <li class="dropdown">
-                <div class="dropdown-menu"><a href="{% url 'place' %}">장소</a></div>
-            </li>
-            <li class="dropdown">
-                <div class="dropdown-menu"><a href="{% url 'music' %}">음악</a></div>
-            </li>
-            <li class="dropdown">
-                <div class="dropdown-menu"><a href="{% url 'picture' %}">사진</a></div>
-            </li>
-            <li class="home"><a href="{% url 'home' %}">Home</a></li>
-        </ul>
-    </nav>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" id="home" href="{% url 'home' %}">Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'hobby' %}">취미</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'place' %}">장소</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'music' %}">음악</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'picture' %}">죠르디</a>
+                </li>
+                </ul>
+            </div>
+            </div>
+        </nav>
 
     <div>
         {% block content%}

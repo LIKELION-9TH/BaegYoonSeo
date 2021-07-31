@@ -1,7 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content%}
+<div class="card" id="card">
+    <div class="card-body" id="card-body">
+        <h5 class="card-title">라켓볼!</h5>
+        <p class="card-text">라켓볼 엄청 좋아해요! 17년도부터 쳤고 여전히 치고 있습니다~! 
+            물론 코로나 때문에 한 달 연기했지만.. 코로나가 얼른 나아져서 마스크 없이 운동했으면 좋겠어요.
+            저번에 비 때문에 습해서 발목을 한 번 삔 이후로 상태가 안 좋지만 라켓볼 절대 포기 못해..
+        </p>
+        {% load static %}
+        <img src="{% static 'racquetball.png' %}" class="card-img-bottom" alt="...">
+        <p class="card-text"><small class="text-muted">라켓 너무 힘차게 휘둘러서 라켓 줄 끊어진 사진</small></p>
 
-취미
-
+    </div>
+</div>
 {% endblock %}
