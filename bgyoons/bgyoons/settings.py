@@ -21,10 +21,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
+# # SECURITY WARNING: keep the secret key used in production secret!
+# SECRET_KEY = os.environ.get(
+#     'SECRET_KEY', 'django-insecure-az5wjc=_7s6^_&#*0c+liopqmxv46s+wzh9_@_$&j8j%9gn$6u')
 SECRET_KEY = 'django-insecure-az5wjc=_7s6^_&#*0c+liopqmxv46s+wzh9_@_$&j8j%9gn$6u'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -131,7 +134,15 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# # AWS
+# AWS_ACCESS_KEY_ID = 'AKIAZDLNIYLX3XJAFK6S'
+# AWS_SECRET_ACCESS_KEY = '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'
+# AWS_STORAGE_BUCKET_NAME = 'introduce-django'
